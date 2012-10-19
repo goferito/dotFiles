@@ -1,6 +1,3 @@
-#linea que pongo yo para meter la carpeta tools del sdk en el path
-export PATH=${PATH}:/home/goferito/android-sdk-linux_x86/tools/
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
