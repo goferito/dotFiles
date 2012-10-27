@@ -6,4 +6,4 @@ alias home='cd ~; ls'
 
 #change the terminal window size
 alias sizea="wmctrl -r ':ACTIVE:' -e 0,-1,-1,800,800"
-alias sizeb="wmctrl -r ':ACTIVE:' -e 0,-1,-1,300,800"
+alias sizeb="wmctrl -r ':ACTIVE:' -e 0,-1,-1,725,200"
