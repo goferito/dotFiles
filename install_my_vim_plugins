@@ -1,6 +1,6 @@
 mkdir -p ~/.vim/bundle ~/.vim/autoload
 cd ~/.vim/autoload
-curl -Sso . https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+wget https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 cd ~/.vim/bundle
 git clone https://github.com/kien/ctrlp.vim.git
 git clone https://github.com/Raimondi/delimitMate.git
