@@ -1,6 +1,9 @@
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
 
+:set guioptions-=T  "remove toolbar
+set lines=50 columns=100
+
 " Change cursor depending on mode
 if has("autocmd")
     au VimEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape block"
@@ -22,8 +25,12 @@ set ignorecase "Ignore case when searching
 set hlsearch "Highlight search things
 set ruler "Always show current position
 set nu "number of line
-set nobackup
 set scrolloff=5
+
+"Turn backup off
+set nobackup
+set nowb
+set noswapfile
 
 "No sound on errors
 set noerrorbells
@@ -81,10 +88,5 @@ vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 "Color Scheme
 colorscheme tango
-
-"Turn backup off
-set nobackup
-set nowb
-set noswapfile
 
 
