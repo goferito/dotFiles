@@ -23,6 +23,7 @@ set smarttab
 set smartindent
 set ignorecase "Ignore case when searching
 set hlsearch "Highlight search things
+set incsearch "Highlight as type
 set ruler "Always show current position
 set nu "number of line
 set scrolloff=5
@@ -89,4 +90,6 @@ vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 "Color Scheme
 colorscheme tango
 
-
+"DelimitMate conf
+let delimitMate_expand_cr = 1
+au FileType mail let b:delimitMate_expand_cr = 1
