@@ -1,8 +1,16 @@
-" When vimrc is edited, reload it
-autocmd! bufwritepost vimrc source ~/.vimrc
+call pathogen#infect()
 
-:set guioptions-=T  "remove toolbar
-set lines=50 columns=100
+"set guioptions-=T  "remove toolbar
+set lines=50 columns=85
+
+" Solve sparkup conflict
+let g:sparkupNextMapping = '<c-g>n'
+
+" Use jsx syntax on js files
+let g:jsx_ext_required = 0
+
+" Check for standart js
+let g:syntastic_javascript_checkers = ['standard']
 
 " Change cursor depending on mode
 if has("autocmd")
@@ -12,21 +20,27 @@ if has("autocmd")
     au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
 endif
 
-call pathogen#infect()
-
-set shiftwidth=4
+set background=dark
+set laststatus=2
+set shiftwidth=2
 set expandtab
-set ai "Auto indent
-set wrap "Wrap lines... no se yo...
-set tabstop=4
+set tabstop=2
+set softtabstop=2
+set wrap 
+set autoread
 set smarttab
+set autoindent
 set smartindent
+set nofoldenable 
+set smartcase
 set ignorecase "Ignore case when searching
 set hlsearch "Highlight search things
 set incsearch "Highlight as type
 set ruler "Always show current position
-set nu "number of line
+set number
 set scrolloff=5
+set t_Co=256
+
 
 "Turn backup off
 set nobackup
@@ -40,6 +54,17 @@ set novisualbell
 set gfn=Monospace\ 10
 set shell=/bin/bash
 
+"Create Blank Newlines and stay in Normal mode
+nnoremap <silent> zj o<Esc>
+nnoremap <silent> zk O<Esc>
+
+"Move over wrapped lines
+nnoremap j gj
+nnoremap k gk
+
+"Select last inserted text
+nnoremap gV `[v`] 
+
 syntax on
 filetype plugin indent on
 
@@ -50,7 +75,8 @@ let g:mapleader = ","
 
 nmap <leader>w :w!<cr>
 nmap <leader>x :q<cr>
-nmap <leader>d :NERDTree<cr>
+nmap <leader>e :NERDTreeToggle<cr>
+nmap <leader>/ :noh<cr>
 
 " Windows moving
 map <C-j> <C-W>j
@@ -81,15 +107,16 @@ nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 
-"Move a line of text using ALT+[jk]
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+"Quick window split
+map <Leader>v <C-W>v
+map <Leader>h <C-W>n
 
 "Color Scheme
-colorscheme tango
+colorscheme goferito_mango
 
 "DelimitMate conf
 let delimitMate_expand_cr = 1
-au FileType mail let b:delimitMate_expand_cr = 1
+
+"Ctrlp to ignore things
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|build'
+
