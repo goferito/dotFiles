@@ -50,9 +50,11 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\e]0;\u@\h: \w\a\]\r\n\[\033[01;32m\]\w $ \[\033[00;05m\]'
+  # Change the prompt color if last exit was not 0
+  PROMPT_COMMAND='if [ $? = 0 ]; then DOLLAR_COLOR="\033[01;32m"; else DOLLAR_COLOR="\033[01;31m"; fi'
+  PS1='\[\e]0;\u@\h: \w\a\]\r\n\[\033[01;32m\]\w\[\033[02;36m\]$(__git_ps1)\[$(echo -ne $DOLLAR_COLOR)\] $ \[\033[00;05m\]'
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -75,10 +77,6 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -89,3 +87,4 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
