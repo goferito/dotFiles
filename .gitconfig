@@ -1,7 +1,8 @@
 [user]
-	name = goferito
+	name = Mr. Goferito
 	email = goferito@gmail.com
 [color]
 	ui = true
 [core]
 	editor = vim
+  ignorecase = false
