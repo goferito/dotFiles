@@ -1,2 +1,17 @@
 set show-all-if-ambiguous on
+set show-all-if-unmodified on
 set completion-ignore-case on
+set completion-prefix-display-length 2
+set completion-map-case on
+set skip-completed-text
+
+# Avoid history modification
+set revert-all-at-newline
+
+# Mark links to dirs with final /
+set mark-symlinked-directories
+
+Control-p: history-search-backward
+Control-n: history-search-forward
+Control-j: menu-complete
+Control-o: menu-complete-backward
